@@ -9,7 +9,7 @@ cascade = cv.CascadeClassifier(CAS_DIR+'haarcascade_frontalface_alt2.xml')
 if not os.path.exists(os.path.join(BASE_DIR, 'images')):
     os.makedirs(os.path.join(BASE_DIR, 'images'))
 IMG_DIR = os.path.join(BASE_DIR, 'images')
-user = 'amber'
+user = input("Test subject name: ")
 
 count = 0
 while True:
