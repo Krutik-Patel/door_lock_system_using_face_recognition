@@ -34,6 +34,7 @@ with open("labels.pickle", 'rb') as f:
 cascade = cv.CascadeClassifier(CAS_DIR+'haarcascade_frontalface_alt2.xml')
 train_image_dimensions = (152, 152)
 cap = cv.VideoCapture(0 + cv.CAP_DSHOW)
+pred_name = None
 
 
 # pygame initializations
@@ -108,14 +109,16 @@ while run:
                 else:
                     pred_name = 'unrecognized'
                 print(pred_name)
-                if username == pred_name:
-                    door_sprite.animating = True
                     
             cv.imshow('frame', cap_frame)
             if cv.waitKey(20) & 0xFF == ord('q'):
                 open_video_capture = False
          
-            
+    if username == pred_name:
+        door_sprite.animating = True
+        open_video_capture = False
+        cap.release()
+        cv.destroyAllWindows()
     if enter_username:
         enter_username_text_surface = base_font.render(enter_username_text, True, (0, 0, 0))
         username_text_surface = base_font.render(username, True, (0, 0, 0))

@@ -35,7 +35,7 @@ if os.path.exists(MODEL_DIR):
     model = tf.keras.models.load_model(MODEL_DIR)
 else:
     model = None
-model = model_train(x, y, model)
+model = model_train(x, y, model, currID)
 model.save(os.path.join(MODEL_DIR))
 
 with open("labels.pickle", 'wb') as f:

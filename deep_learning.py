@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 
-def model_train(x, y, cnn):
+def model_train(x, y, cnn, output):
     x_scaled = x.reshape(-1, 152, 152, 1) / 255
     if (x_scaled.shape[0] == y.shape[0]):
         x_prac, x_test, y_prac, y_test = train_test_split(x_scaled, y, test_size=0.2, random_state = 42)
@@ -18,7 +18,7 @@ def model_train(x, y, cnn):
                 keras.layers.MaxPooling2D((2, 2)),
                 keras.layers.Flatten(),
                 keras.layers.Dense(10, activation='relu'),
-                keras.layers.Dense(3, activation='sigmoid')
+                keras.layers.Dense(output, activation='sigmoid')
             ])
             cnn.compile(
                 optimizer='adam',
