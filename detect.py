@@ -33,7 +33,7 @@ while True:
             y_pred = cnn.predict(roi_gray)
             print(y_pred)
             if np.amax(y_pred) > 0.5:
-                pred_name = labels[np.argmax(y)]
+                pred_name = labels[np.argmax(y_pred)]
             else:
                 pred_name = 'unrecognized'
             print(pred_name)
