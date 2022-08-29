@@ -19,11 +19,11 @@ while True:
         faces = cascade.detectMultiScale(gray, minNeighbors=5, scaleFactor=1.5)
         for x, y, w, h in faces:
             count += 1
-            if count > 100:
+            if count > 500:
                 break
-            if not os.path.exists(os.path.join(IMG_DIR, f'gray_image_{user}')):
-                os.makedirs(os.path.join(IMG_DIR, f'gray_image_{user}'))
-            PATH = os.path.join(IMG_DIR, f'gray_image_{user}')
+            if not os.path.exists(os.path.join(IMG_DIR, f'{user}')):
+                os.makedirs(os.path.join(IMG_DIR, f'{user}'))
+            PATH = os.path.join(IMG_DIR, f'{user}')
             roi_gray = gray[y:y+h, x:x+w]
             cv.imwrite(f'{PATH}/image_{user}{count}.png', roi_gray)
             rect_colour = (255, 0, 0)
