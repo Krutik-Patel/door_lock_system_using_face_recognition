@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 from deep_learning import model_train
 import cv2 as cv
+import pickle
 from PIL import Image
 
 currID = 0
@@ -36,4 +37,7 @@ else:
     model = None
 model = model_train(x, y, model)
 model.save(os.path.join(MODEL_DIR))
+
+with open("labels.pickle", 'wb') as f:
+    pickle.dump(labels, f)
 quit()
