@@ -48,3 +48,8 @@ If your face is detected, properly, you can start with the door.py app.
 
 To exit the app, press the close button. 
 To exit the detection app, press the 'q' key in the keyboard.
+
+
+### Caution
+
+The data set is too small, so the model may show False Positives.
